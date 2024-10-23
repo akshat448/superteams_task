@@ -16,6 +16,22 @@ This project features a FastAPI backend application integrated with Replicate’
 - [Streamlit Application](#streamlit-application)
 - [Environment Variables](#environment-variables)
 
+## Project Structure
+**The directory structure is as follows:**
+```
+superteams_task/
+├── app/
+│   ├── main.py
+│   ├── streamlit_app.py
+│   ├── __init__.py
+├── venv/
+├── uploads/
+├── .gitignore
+├── .env
+└── ...
+```
+
+
 ## Installation
 
 1. Clone the repository:
@@ -109,6 +125,8 @@ This project features a FastAPI backend application integrated with Replicate’
 
 **Request Body**:
 - prompt: Text prompt to generate the image.
+- model_owner_name: The owner of the model.
+- model_name: The name of the model.
 - model_id: ID of the model to use for image generation.
 
 **Response**:
@@ -116,4 +134,17 @@ This project features a FastAPI backend application integrated with Replicate’
 { "image_url": "https://..." }
 ```
 
+## Streamlit Application
 
+The Streamlit application provides an interface for:
+- Uploading files for fine-tuning.
+- Creating a new model on Replicate.
+- Fine-tuning a model with uploaded data.
+- Generating an image based on a prompt.
+
+Navigate through the different pages using the sidebar.
+
+## Environment Variables
+
+Create a .env file in the project root and define the following environment variable :
+- REPLICATE_API_TOKEN: Your Replicate API token.
