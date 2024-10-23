@@ -17,8 +17,8 @@ class CreateModel(BaseModel):
     owner: str
     name: str
     description: str = "an example model"
-    visibility: str = "public"
-    hardware: str = "gpu-a40-large"
+    visibility: str
+    hardware: str
 
 class ImagePrompt(BaseModel):
     prompt: str
