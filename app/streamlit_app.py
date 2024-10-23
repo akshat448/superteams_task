@@ -60,7 +60,7 @@ def page_create_model():
     name = st.text_input("Model Name")
     description = st.text_input("Description", value="an example model")
     visibility = st.selectbox("Visibility", ["public", "private"])
-    hardware = st.selectbox("Hardware", ["gpu-a40-large", "gpu-t4", "cpu"])
+    hardware = st.selectbox("Hardware", ["gpu-a40-large", "cpu"])
     if st.button("Create Model"):
         result = create_model(owner, name, description, visibility, hardware)
         st.write(result)

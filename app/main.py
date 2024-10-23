@@ -22,9 +22,9 @@ class CreateModel(BaseModel):
 
 class ImagePrompt(BaseModel):
     prompt: str
-    owner_name: str 
-    name: str 
-    version: str 
+    model_owner_name: str 
+    model_name: str
+    model_version: str
     
 class FineTuneModel(BaseModel):
     destination: str
@@ -117,13 +117,13 @@ async def fine_tune_model(params: FineTuneModel):
 async def generate_image(image_prompt: ImagePrompt):
     try:
         prompt = image_prompt.prompt
-        owner_name = image_prompt.owner_name  # Updated field name
-        name = image_prompt.name  # Updated field name
-        version = image_prompt.version  # Updated field name
+        model_owner_name = image_prompt.model_owner_name  # Updated field name
+        model_name = image_prompt.model_name  # Updated field name
+        model_version = image_prompt.model_version  # Updated field name
 
         # Use Replicate to generate an image with the fine-tuned model
         output = replicate.run(
-            f"{owner_name}/{name}:{version}",
+            f"{model_owner_name}/{model_name}:{model_version}",
             input={
                 "prompt": prompt,
                 "output_format": "webp",
